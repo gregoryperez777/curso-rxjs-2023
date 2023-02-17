@@ -9,8 +9,6 @@ import { zip, of } from 'rxjs';
  *  La primera debe de obtener el personaje de Star Wars:
  *   Luke Skywalker, llamando el endpoint:   /people/1/
  * 
- *  se hara con Dormé /people/1/ ya que Luke Skywalker no trae data en species
- * 
  *  La segunda petición, debe de ser utilizando el objeto
  *  de la petición anterior, y tomar la especie (species),
  *  que es un arreglo de URLs (array), dentro de ese arreglo, 
@@ -49,18 +47,16 @@ import { zip, of } from 'rxjs';
     // ==================================================================
 
     // Realizar el llamado al URL para obtener a Luke Skywalker
-    getRequest(`${SW_API}/people/66/`)
-      .pipe(
-
-        // resp es un objeto pero zip recibe observable
-        // por eso usamos of 
-        switchMap(resp => zip( of(resp) , getRequest(resp.species[0])) ),
-        map( ([personaje, especie]) => ({ personaje, especie }) )
+    getRequest(`Aquí va un URL`).pipe(
+        // Realizar los operadores respectivos aquí
+        
 
 
-      // NO TOCAR el subscribe ni modificarlo ==
-      ).subscribe( console.log )           // ==
-      // =======================================
+        
+
+    // NO TOCAR el subscribe ni modificarlo ==
+    ).subscribe( console.log )           // ==
+    // =======================================
 
 
 
